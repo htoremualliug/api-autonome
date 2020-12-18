@@ -7,12 +7,15 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const events = require('./actualites');
 const upload = require('./upload');
+const config = require('../config.json');
+
+const { host, user, password, database } = config.database;
 
 const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'user',
-  password : 'User12345*',
-  database : 'myblog'
+  host, 
+  user,
+  password,
+  database
 });
 
 connection.connect();

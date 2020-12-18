@@ -1,13 +1,14 @@
 const express = require('express');
 const multer = require('multer');
 var fileExtension = require('file-extension')
+const config = require('../config.json');
 
 function createRouter() {
 	const router = express.Router();
 
 	var newFileName = '';
-	//var diskStoragePath = '/var/www/html/assets/img/custom-client/actualite'; // PROD MOD
-	var diskStoragePath = 'D:/WebDev/TemplateBlog/src/assets/img/custom-client/actualite'; // CHANGE ME
+	
+	var diskStoragePath = config.diskStoragePath;
 
 	// Configure Storage
 	var storage = multer.diskStorage({
