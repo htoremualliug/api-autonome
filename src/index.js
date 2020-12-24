@@ -27,6 +27,12 @@ const app = express()
   .use(bodyParser.json())
   .use(events(connection))
   .use(upload());
+  
+  app.options('*', (req, res) => {
+        // allowed XHR methods  
+        res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
+        res.send();
+    });
 
 app.listen(port, () => {
   console.log(`api server listening on port ${port}`);
