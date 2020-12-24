@@ -1,4 +1,10 @@
 const express = require('express');
+const cors = require('cors');
+
+var corsOptions = {
+  origin: 'https://rothwebsolutions.fr',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 function createRouter(db) {
   const router = express.Router();
@@ -9,7 +15,7 @@ function createRouter(db) {
   // the routes are defined here
 
 	// SELECT ALL
-	router.get('/list-actualites', function (req, res, next) {
+	router.get('/list-actualites', cors(corsOptions), function (req, res, next) {
 	  db.query(
 		'SELECT no, title, img, descr, edit, created FROM actualites ORDER BY created DESC',
 		[10*(req.params.page || 0)],
