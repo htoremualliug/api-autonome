@@ -10,8 +10,6 @@ function createRouter(db) {
 
 	// SELECT ALL
 	router.get('/list-actualites', function (req, res, next) {
-		res.header("Access-Control-Allow-Origin", "https://rothwebsolutions.fr");
-		next();
 	  db.query(
 		'SELECT no, title, img, descr, edit, created FROM actualites ORDER BY created DESC',
 		[10*(req.params.page || 0)],
