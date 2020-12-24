@@ -8,10 +8,8 @@ function createRouter(db) {
 
   // the routes are defined here
 
-const allowOrigins = ['https://localhost:4200', 'https://rothwebsolutions.fr'];
 	// SELECT ALL
 	router.get('/list-actualites', function (req, res, next) {
-				
 	  db.query(
 		'SELECT no, title, img, descr, edit, created FROM actualites ORDER BY created DESC',
 		[10*(req.params.page || 0)],
