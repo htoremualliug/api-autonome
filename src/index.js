@@ -22,15 +22,20 @@ connection.connect();
 
 const port = 3000;
 
+const app = express();
 
+app.use(function(request, response, next) {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
-const app = express()
+app
+  .use(cors())
   .use(bodyParser.json())
   .use(events(connection))
   .use(upload());
 
-app.options('*', cors());
-app.use(cors());
 
 app.listen(port, () => {
   console.log(`api server listening on port ${port}`);
