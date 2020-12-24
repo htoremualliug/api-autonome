@@ -33,7 +33,7 @@ res.header('Access-Control-Allow-Origin', 'https://rothwebsolutions.fr');
 const app = express();
 
 app
-  //.use(cors())
+  .use(cors())
   .use(bodyParser.json())
   .use(allowCrossDomain)
   .use(events(connection))
