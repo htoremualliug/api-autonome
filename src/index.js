@@ -22,17 +22,15 @@ connection.connect();
 
 const port = 3000;
 
+
+
 const app = express()
-  .use(cors())
   .use(bodyParser.json())
   .use(events(connection))
   .use(upload());
-  
-  app.options('*', (req, res) => {
-        // allowed XHR methods  
-        res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
-        res.send();
-    });
+
+app.options('*', cors());
+app.use(cors());
 
 app.listen(port, () => {
   console.log(`api server listening on port ${port}`);
