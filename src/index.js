@@ -24,11 +24,6 @@ const port = 3000;
 
 const app = express();
 
-app.use(function(request, response, next) {
-    response.header("Access-Control-Allow-Origin", "https://rothwebsolutions.fr");
-    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 app
  // .use(cors())
