@@ -8,7 +8,7 @@ function createRouter(db) {
 
   // the routes are defined here
 
-const allowOrigins = ['https://localhost:4200', 'http://autre.exemple.com'];
+const allowOrigins = ['https://localhost:4200', 'https://rothwebsolutions.fr'];
 	// SELECT ALL
 	router.get('/list-actualites', function (req, res, next) {
 		
