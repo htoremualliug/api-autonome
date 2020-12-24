@@ -2,9 +2,9 @@
     "database": {
         "host": "localhost",
         "port": 3306,
-        "user": "root",
-        "password": "Coton25272*",
+        "user": "user",
+        "password": "User12345*",
         "database": "myblog"
     },
-    "diskStoragePath": "D:/WebDev/RothWebSolutions/src/assets/autonome/img/custom-client/actualite"
+    "diskStoragePath": "/var/www/html/assets/img/custom-client/actualite"
 }

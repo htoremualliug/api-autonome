@@ -61,7 +61,7 @@ function createRouter() {
 			statusCode: 200,
 			status: 'success',
 			uploadedFile: file,
-			newFileName: './assets/autonome/img/custom-client/actualite/' + newFileName
+			newFileName: './assets/img/custom-client/actualite/' + newFileName
 		})
 
 	}, (error, req, res, next) => {

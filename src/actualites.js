@@ -4,7 +4,7 @@ function createRouter(db) {
   const router = express.Router();
   const owner = '';
 
-  var dbStoragePath = './assets/autonome/img/custom-client/actualite';
+  var dbStoragePath = './assets/img/custom-client/actualite';
 
   // the routes are defined here
 
