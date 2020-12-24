@@ -22,13 +22,13 @@ connection.connect();
 
 const port = 3000;
 
-var corsOptions = {
-  origin: 'https://rothwebsolutions.fr',
-  optionsSuccessStatus: 200 
-}
 
-const app = express()
-  .use(cors(corsOptions))
+const app = express();
+
+app.options('*', cors()) // include before other routes 
+
+app
+  .use(cors())
   .use(bodyParser.json())
   .use(events(connection))
   .use(upload());
