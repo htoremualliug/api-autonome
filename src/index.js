@@ -36,6 +36,11 @@ app
   .use(events(connection))
   .use(upload());
 
+// le serveur répond qu'il accepte les méthodes GET, PUT, POST, DELETE et OPTIONS
+app.options('*', function (request, response, next) {
+    response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+    response.send();
+});
 
 app.listen(port, () => {
   console.log(`api server listening on port ${port}`);
