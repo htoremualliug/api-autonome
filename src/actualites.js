@@ -11,25 +11,7 @@ function createRouter(db) {
 const allowOrigins = ['https://localhost:4200', 'https://rothwebsolutions.fr'];
 	// SELECT ALL
 	router.get('/list-actualites', function (req, res, next) {
-		
-		
-		if (req.headers['origin'] && allowOrigins.includes(req.headers['origin'])) {
-
-        // Si oui alors on renseigne "Access-Control-Allow-Origin" avec l'origine de la requête
-        res.setHeader('Access-Control-Allow-Origin', req.headers['origin']);
-    } else {
-
-        // Sinon on renseigne "Access-Control-Allow-Origin" à null créant une erreur CORS dans le navigateur
-        res.setHeader('Access-Control-Allow-Origin', 'null');
-    }
-
-    if (req.method === 'OPTIONS') {
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, Origin, Authorization');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-
-        return res.end();
-    }
-		
+				
 	  db.query(
 		'SELECT no, title, img, descr, edit, created FROM actualites ORDER BY created DESC',
 		[10*(req.params.page || 0)],

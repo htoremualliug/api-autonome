@@ -22,37 +22,20 @@ connection.connect();
 
 const port = 3000;
 
-// Mes origines acceptées
-const allowOrigins = ['https://localhost:4200', 'http://autre.exemple.com'];
+var allowCrossDomain = function(req, res, next) {
+res.header('Access-Control-Allow-Origin', 'https://rothwebsolutions.fr';
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
 
 const app = express();
-
-app.use('request', (request, response) => {
-
-    // On test si l'entête "Origin" fait partie des origines acceptées
-    if (request.headers['origin'] && allowOrigins.includes(request.headers['origin'])) {
-
-        // Si oui alors on renseigne "Access-Control-Allow-Origin" avec l'origine de la requête
-        response.setHeader('Access-Control-Allow-Origin', request.headers['origin']);
-    } else {
-
-        // Sinon on renseigne "Access-Control-Allow-Origin" à null créant une erreur CORS dans le navigateur
-        response.setHeader('Access-Control-Allow-Origin', 'null');
-    }
-
-    if (request.method === 'OPTIONS') {
-        response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, Origin, Authorization');
-        response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-
-        return response.end();
-    }
-
-    // suite du traitement ...
-});
 
 app
   //.use(cors())
   .use(bodyParser.json())
+  .use(allowCrossDomain)
   .use(events(connection))
   .use(upload());
 
