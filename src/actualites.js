@@ -6,10 +6,12 @@ function createRouter(db) {
 
   var dbStoragePath = './assets/img/custom-client/actualite';
 
+  const prefix = '/api-autonome';
+
   // the routes are defined here
 
 	// SELECT ALL
-	router.get('/list-actualites', function (req, res, next) {
+	router.get(prefix+'/list-actualites', function (req, res, next) {
 	  db.query(
 		'SELECT no, title, img, descr, edit, created FROM actualites ORDER BY created DESC',
 		[10*(req.params.page || 0)],
