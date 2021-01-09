@@ -97,7 +97,7 @@ function createRouter() {
 		})
 	})
 	
-	router.delete('/delete-image/:name', function (req, res, next) {
+	router.delete('/api-autonome/delete-image/:name', function (req, res, next) {
 		const fileName = req.params.name;
 		const fs = require('fs')
 		const path = diskStoragePath + '/' + fileName;
