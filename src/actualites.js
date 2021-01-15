@@ -4,7 +4,7 @@ function createRouter(db) {
   const router = express.Router();
   const owner = '';
 
-  var dbStoragePath = './assets/img/custom-client/actualite';
+  var dbStoragePath = './assets/autonome/img/custom-client/actualite';
 
   // the routes are defined here
 
@@ -127,7 +127,7 @@ function createRouter(db) {
 
 	router.get('/is-used-image/:name', function (req, res, next) {	
 		const fullPath = dbStoragePath+'/'+req.params.name;
-		
+		console.log(fullPath);
 		db.query(
 			'SELECT img FROM actualites WHERE img LIKE ?',
 			[fullPath],

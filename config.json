@@ -6,5 +6,5 @@
         "password": "User12345*",
         "database": "myblog"
     },
-    "diskStoragePath": "/var/www/html/assets/img/custom-client/actualite"
+    "diskStoragePath": "D:/WebDev/TemplateAutonome/src/assets/img/custom-client/actualite"
 }
