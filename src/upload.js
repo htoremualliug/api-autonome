@@ -42,7 +42,7 @@ function createRouter() {
 			cb(undefined, true)
 		}
 	})
-
+/*
 
 	//ROUTES WILL GO HERE
 	router.get('/', function (req, res) {
@@ -70,7 +70,7 @@ function createRouter() {
 			statusCode: 400
 		})
 	})
-
+*/
 
 	router.get('/list-images', function (req, res, next) {
 		//requiring path and fs modules
@@ -96,7 +96,7 @@ function createRouter() {
 			error: error.message
 		})
 	})
-	
+	/*
 	router.delete('/api-autonome/delete-image/:name', function (req, res, next) {
 		const fileName = req.params.name;
 		const fs = require('fs')
@@ -119,7 +119,7 @@ function createRouter() {
 			error: error.message
 		})
 	})
-	
+	*/
 	return router;
 }
 

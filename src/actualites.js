@@ -23,7 +23,7 @@ function createRouter(db) {
 		}
 	  );
 	});
-	
+	/*
 	// SELECT ONE
 	router.get('/details-actualite/:no', function (req, res, next) {
 	  db.query(
@@ -123,7 +123,7 @@ function createRouter(db) {
 		}
 	  );
 	});
-
+*/
 
 	router.get('/is-used-image/:name', function (req, res, next) {	
 		const fullPath = dbStoragePath+'/'+req.params.name;
